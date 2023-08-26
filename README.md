@@ -2,6 +2,7 @@
 
 --------GRUPO GENTION DE VIAJES ----
 -----------LENGUAJE: PHP -----------
+---------BASE DATOS: MYSQL---------------
 
 INTEGRANTES:
 JUSTIN ZINEDINE ZEVALLOS PURCA

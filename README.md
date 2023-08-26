@@ -2,9 +2,13 @@
 
 --------GRUPO GENTION DE VIAJES ----
 
-INTEGRANTES:
-JUSTIN ZINEDINE ZEVALLOS PURCA
-MAYNER ANAHUA COAQUIRA 
+
+| Integrantes |
+|----------|
+| JUSTIN ZINEDINE ZEVALLOS PURCA    |
+| MAYNER ANAHUA COAQUIRA    |
+| ...   |
+
 
 | LENGUAJE | BASE DATOS |
 |----------|----------|

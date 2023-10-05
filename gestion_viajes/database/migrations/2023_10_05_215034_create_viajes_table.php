@@ -14,13 +14,14 @@ return new class extends Migration
         Schema::create('viajes', function (Blueprint $table) {
 
             $table->bigIncrements('id');
+
             $table->string('titulo');
             $table->text('comentario');
             $table->date('fecha_partida');
             $table->date('fecha_regreso')->nullable();
 
-            //$table->unsignedBigInteger('destino_id');
-            //$table->foreign('destino_id')->references('id')->on('destinos');
+            $table->unsignedBigInteger('destino_id');
+            $table->foreign('destino_id')->references('id')->on('destinos')->onDelete('restrict'); //onDelete('cascade')
 
 
             $table->timestamps();

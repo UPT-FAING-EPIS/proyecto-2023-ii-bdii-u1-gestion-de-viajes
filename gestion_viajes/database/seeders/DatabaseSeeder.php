@@ -14,7 +14,13 @@ class DatabaseSeeder extends Seeder
     {
 
         $this->call(class: UsersTableSeeder::class);
+        //
+        $this->call(class: DestinosTableSeeder::class);
         $this->call(class: ViajesTableSeeder::class);
+        $this->call(class: DetalleViajesTableSeeder::class);
+        $this->call(class: CostoDetallesTableSeeder::class);
+
+
 
         //COMANDO: php artisan db:seed
 

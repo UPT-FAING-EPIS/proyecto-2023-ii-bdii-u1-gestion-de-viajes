@@ -13,11 +13,24 @@ class Viaje extends Model
         'titulo',
         'comentario',
         'fecha_partida',
-        'fecha_regreso'
-    ]; // 'destino_id',
+        'fecha_regreso',
+        'destino_id',
+    ];
 
     protected $dates = [
         'fecha_partida',
         'fecha_regreso',
     ];
+
+
+    public function destino()
+    {
+        return $this->belongsTo('App/Models/Destino');
+    }
+
+
+    public function detalle_viaje()
+    {
+        return $this->hasMany('App/Models/DetalleViaje');
+    }
 }

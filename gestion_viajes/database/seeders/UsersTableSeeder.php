@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
     {
 
         //Vaciar Tabla
-        User::truncate();
+        //User::truncate();
 
 
         //Crear datos falsos

@@ -7,7 +7,10 @@ use App\Models\Destino;
 use App\Models\Viaje;
 use App\Models\DetalleViaje;
 use App\Models\CostoDetalle;
-
+//
+use App\Http\Controllers\RutaController;
+use App\Http\Controllers\ViajeController;
+use App\Http\Controllers\ItinerarioController;
 
 
 /*
@@ -28,40 +31,39 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 */
 
-//--------------------------------Destinos-------------------------------------------//
 
-//Obtener una lista de registros
-Route::get('destinos', function () {
-    return Destino::all();
-});
+/*
 
-//Obtener un solo registro
-Route::get('destinos/{id}', function ($id) {
-    return Destino::find($id);
-});
+//----------------------------------------Rutas------------------------------------------//
 
-//Crear un nuevo registro
-Route::post('destinos', function (Request $request) {
-    return Destino::create($request->all());
-});
+Route::get('rutas', 'RutaController@index');
+Route::get('rutas/{ruta}', 'RutaController@show');
+Route::post('rutas', 'RutaController@store');
+Route::put('rutas/{ruta}', 'RutaController@update');
+Route::delete('rutas/{ruta}', 'RutaController@delete');
 
-//Actualizar registros
-Route::put('destinos/{id}', function (Request $request, $id) {
-    $destino = Destino::findOrFail($id);
-    $destino->update($request->all());
-    return $destino;
-});
+//--------------------------------------Viajes-------------------------------------------//
 
-//Eliminar registros
-Route::delete('destinos/{id}', function ($id) {
-    Destino::find($id)->delete();
-    return 204; //Retorna el codigo http 204
-});
+Route::get('viajes', 'ViajeController@index');
+Route::get('viajes/{viaje}', 'ViajeController@show');
+Route::post('viajes', 'ViajeController@store');
+Route::put('viajes/{viaje}', 'ViajeController@update');
+Route::delete('viajes/{viaje}', 'ViajeController@delete');
+
+//------------------------------------Itinerarios----------------------------------------//
+
+Route::get('itinerarios', 'ItinerarioController@index');
+Route::get('itinerarios/{itinerario}', 'ItinerarioController@show');
+Route::post('itinerarios', 'ItinerarioController@store');
+Route::put('itinerarios/{itinerario}', 'ItinerarioController@update');
+Route::delete('itinerarios/{itinerario}', 'ItinerarioController@delete');
+
+//---------------------------------------------------------------------------------------//
+
+*/
 
 
-
-//--------------------------------Viajes-------------------------------------------//
-
+/*
 //Obtener una lista de registros
 Route::get('viajes', function () {
     return Viaje::all();
@@ -89,63 +91,31 @@ Route::delete('viajes/{id}', function ($id) {
     Viaje::find($id)->delete();
     return 204; //Retorna el codigo http 204
 });
-//--------------------------------DetalleViajes-------------------------------------------//
-
-//Obtener una lista de registros
-Route::get('detalleViajes', function () {
-    return DetalleViaje::all();
-});
-
-//Obtener un solo registro
-Route::get('detalleViajes/{id}', function ($id) {
-    return DetalleViaje::find($id);
-});
-
-//Crear un nuevo registro
-Route::post('detalleViajes', function (Request $request) {
-    return DetalleViaje::create($request->all());
-});
-
-//Actualizar registros
-Route::put('detalleViajes/{id}', function (Request $request, $id) {
-    $detalle_viaje = DetalleViaje::findOrFail($id);
-    $detalle_viaje->update($request->all());
-    return $detalle_viaje;
-});
-
-//Eliminar registros
-Route::delete('detalleViajes/{id}', function ($id) {
-    DetalleViaje::find($id)->delete();
-    return 204; //Retorna el codigo http 204
-});
+*/
 
 
+//----------------------------------------Rutas------------------------------------------//
 
-//--------------------------------CostosDetalles-------------------------------------------//
-//Obtener una lista de registros
-Route::get('costosDetalles', function () {
-    return CostoDetalle::all();
-});
+Route::get('rutas', [RutaController::class, 'index']);
+Route::get('rutas/{ruta}', [RutaController::class, 'show']);
+Route::post('rutas', [RutaController::class, 'store']);
+Route::put('rutas/{ruta}', [RutaController::class, 'update']);
+Route::delete('rutas/{ruta}', [RutaController::class, 'delete']);
 
-//Obtener un solo registro
-Route::get('costosDetalles/{id}', function ($id) {
-    return CostoDetalle::find($id);
-});
+//--------------------------------------Viajes-------------------------------------------//
 
-//Crear un nuevo registro
-Route::post('costosDetalles', function (Request $request) {
-    return CostoDetalle::create($request->all());
-});
+Route::get('viajes', [ViajeController::class, 'index']);
+Route::get('viajes/{viaje}', [ViajeController::class, 'show']);
+Route::post('viajes', [ViajeController::class, 'store']);
+Route::put('viajes/{viaje}', [ViajeController::class, 'update']);
+Route::delete('viajes/{viaje}', [ViajeController::class, 'delete']);
 
-//Actualizar registros
-Route::put('costosDetalles/{id}', function (Request $request, $id) {
-    $costo_detalle = CostoDetalle::findOrFail($id);
-    $costo_detalle->update($request->all());
-    return $costo_detalle;
-});
+//------------------------------------Itinerarios----------------------------------------//
 
-//Eliminar registros
-Route::delete('costosDetalles/{id}', function ($id) {
-    CostoDetalle::find($id)->delete();
-    return 204; //Retorna el codigo http 204
-});
+Route::get('itinerarios', [ItinerarioController::class, 'index']);
+Route::get('itinerarios/{itinerario}', [ItinerarioController::class, 'show']);
+Route::post('itinerarios', [ItinerarioController::class, 'store']);
+Route::put('itinerarios/{itinerario}', [ItinerarioController::class, 'update']);
+Route::delete('itinerarios/{itinerario}', [ItinerarioController::class, 'delete']);
+
+//---------------------------------------------------------------------------------------//

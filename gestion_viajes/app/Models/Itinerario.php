@@ -5,22 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Viaje extends Model
+class Itinerario extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'destino',
-        'fecha_salida',
-        'fecha_regreso',
         'ruta_id',
-        'asiento',
-        'estado',
+        'actividad',
+        'fecha',
+        'hora',
     ];
 
     protected $dates = [
-        'fecha_salida',
-        'fecha_regreso',
+        'fecha',
+        'hora',
     ];
 
 

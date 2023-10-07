@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Itinerario;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,10 +17,9 @@ class DatabaseSeeder extends Seeder
 
         $this->call(class: UsersTableSeeder::class);
         //
-        $this->call(class: DestinosTableSeeder::class);
+        $this->call(class: RutasTableSeeder::class);
         $this->call(class: ViajesTableSeeder::class);
-        $this->call(class: DetalleViajesTableSeeder::class);
-        $this->call(class: CostoDetallesTableSeeder::class);
+        $this->call(class: ItinerariosTableSeeder::class);
 
 
 

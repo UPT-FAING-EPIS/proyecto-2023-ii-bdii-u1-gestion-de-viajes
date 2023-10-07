@@ -11,12 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('destinos', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('ciudad');
-            $table->string('pais');
-            $table->text('descripcion');
+        Schema::create('rutas', function (Blueprint $table) {
 
+            $table->bigIncrements('id');
+
+            $table->string('origen');
+            $table->string('destino');
+            $table->time('duracion')->nullable();
+            $table->decimal('distancia', 10, 2)->nullable();
+            $table->string('medio_transporte')->nullable();
 
             $table->timestamps();
         });
@@ -27,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('destinos');
+        Schema::dropIfExists('rutas');
     }
 };

@@ -5,20 +5,19 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 //
-use App\Models\Viaje;
+use App\Models\Itinerario;
 use App\Models\Ruta;
 use Illuminate\Support\Facades\DB;
 
-class ViajesTableSeeder extends Seeder
+class ItinerariosTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-
         //Vaciar Tabla
-        //Viaje::truncate();
+        //Itinerario::truncate();
 
 
         //Crear datos falsos
@@ -32,13 +31,11 @@ class ViajesTableSeeder extends Seeder
         foreach ($rutas as $ruta) {
 
             for ($i = 0; $i < 10; $i++) {
-                Viaje::create([
-                    'destino' => $faker->city,
-                    'fecha_salida' => $faker->date,
-                    'fecha_regreso' => $faker->date,
+                Itinerario::create([
                     'ruta_id' => $ruta->id,
-                    'asiento' => $faker->numberBetween(1, 100),
-                    'estado' => $faker->randomElement(['Programado', 'En curso', 'Completado']),
+                    'actividad' => $faker->text(50),
+                    'fecha' => $faker->date,
+                    'hora' => $faker->time,
                 ]);
             }
         }

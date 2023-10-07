@@ -15,14 +15,15 @@ return new class extends Migration
 
             $table->bigIncrements('id');
 
-            $table->string('titulo');
-            $table->text('comentario');
-            $table->date('fecha_partida');
+            $table->string('destino');
+            $table->date('fecha_salida');
             $table->date('fecha_regreso')->nullable();
 
-            $table->unsignedBigInteger('destino_id');
-            $table->foreign('destino_id')->references('id')->on('destinos')->onDelete('restrict'); //onDelete('cascade')
+            $table->unsignedBigInteger('ruta_id');
+            $table->foreign('ruta_id')->references('id')->on('rutas')->onDelete('restrict'); //onDelete('cascade')
 
+            $table->integer('asiento');
+            $table->string('estado');
 
             $table->timestamps();
         });
